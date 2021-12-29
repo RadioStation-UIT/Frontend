@@ -1,0 +1,125 @@
+/*diff*/
+.sb__sidebar{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    border-right: 1px solid #222227;
+    height: 100%;
+}
+.sb__logo{
+    width: 100%;
+    height: 70px;
+    border-bottom: 1px solid #222227;
+}
+.sb__sidebar .sb__img{
+    width: 50px;
+    height: 50px;
+}
+.sb__icon_tag{
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+}
+.sb__nav{
+    padding-top: 20px;
+    width: 100%;
+    border-bottom: 1px solid #222227;
+    overflow-y: auto;
+}
+.sb__text p{
+    margin: 0px;
+}
+.sb__nav a{
+    text-decoration: none;
+    color: #c0c0c0;
+}
+.sb__logo a{
+    text-decoration: none;
+    color: #c0c0c0;
+}
+.sb__nav_hover:hover{
+    background-color: rgba(255, 255, 255, 0) !important;
+}
+.sb__nav_hover:hover p{
+    color: #fff !important;
+}
+.css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root{
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+}
+.sb__music__current{
+    padding-top: 20px !important;
+    display:flex;
+    justify-content: center;
+    width: 100%;
+}
+.sb__music__main__image, .sb__music__main__image img{
+    width: 100%;
+    max-width: 90px;
+    height: 90px;
+}
+.sb__music__main__image img{
+    border-radius: 8px;
+    margin-bottom: 8px;
+    height: 100%;
+}
+.sb__music__content{
+    margin-top: 16px;
+    width: 100%;
+}
+.sb__music__track{
+    font-size: 16px;
+    line-height: 24px;
+    display: block;
+    text-align: center;
+    width: 100%;
+    font-weight: 400;
+    color: #c0c0c0;
+    margin-bottom: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+}
+.sb__name_song{
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.sb__action{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.sb__action img{
+    width: 24px;
+    height: 24px;
+}
+.sb__action__play, .sb__action__pause, .sb__action__next, .sb__action__prev{
+    cursor: pointer;
+}
+.sb__action__next{
+    margin-left: 4px;
+}
+.sb__action__prev{
+    margin-right: 4px;
+}
+/*padding*/
+
+/*display*/
+.sb__display_flex{
+    gap: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/*margin*/
+.sb__margin__auto{
+    margin: 0px auto;
+}
+.sb__margin_none{
+    margin: 0;
+}

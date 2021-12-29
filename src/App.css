@@ -1,5 +1,7 @@
 .App {
-  text-align: center;
+  background-color: #16151a;
+  color: #c0c0c0;
+  height: 100vh;
 }
 
 .App-logo {
@@ -11,6 +13,14 @@
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
+}
+.app__display_flex{
+  display: flex;
+  flex-direction: column !important;
+  justify-content: space-between;
+}
+.app__overflow_y{
+  overflow-y: auto;
 }
 
 .App-header {
@@ -35,4 +45,28 @@
   to {
     transform: rotate(360deg);
   }
+}
+.MuiBox-root, .MuiGrid-root{
+  height: 100%;
+}
+/* width */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgba(192,192,192,.8); 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  cursor: pointer;
+  background: rgba(192,192,192,1); 
 }
