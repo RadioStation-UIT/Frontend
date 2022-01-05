@@ -1,0 +1,77 @@
+.ft__background{
+    background-color: #222227;
+}
+.header{
+    background-color: #16151a;
+    border-bottom: 1px solid #222227;
+    min-height: 70px
+}
+.hd__nav__text a{
+    font-size: 16px;
+    color: #c0c0c0 !important;
+    margin-right: 20px;
+    text-decoration: none;
+}
+.hd__nav__text:hover a{
+    color: #25a56a !important;
+}
+.input__search{
+    margin-left: 48px;
+    min-width: 300px;
+    position: relative;
+}
+.input__search input{
+    background-color: #222227;
+    border: 0px solid #fff ;
+    padding: 0 60px 0 20px;
+    width: 100%;
+    height: 40px;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 12px;
+}
+.form-control:focus {
+    background-color: #222227;
+    color: #fff;
+    border: 0px solid #fff ;
+    outline: none;
+    box-shadow: 0 0 0 0;
+}
+.hd__icon__search{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    margin: 8px 12px 8px 0px;
+    cursor: pointer;
+}
+.hd__icon__search:hover{
+    color: #25a56a !important;
+}
+.hd__sign_in a{
+    font-size: 18px;
+    color: #c0c0c0 !important;
+    margin-right: 20px;
+    text-decoration: none;
+}
+.hd__sign_in{
+    display: flex;
+    align-items: center;
+}
+.hd__sign_in:hover a p{
+    color: #fff !important;
+}
+.hd__sign_in:hover a svg{
+    color: #25a56a !important;
+}
+/*display*/
+.hd__display_flex{
+    display: flex;
+    align-items:center;
+}
+.hd__gap_sign_in{
+    gap: 8px;
+}
+/*margin*/
+.hd__margin_none{
+    margin: 0px;
+}

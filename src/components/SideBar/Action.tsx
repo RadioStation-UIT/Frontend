@@ -12,22 +12,21 @@ import nextHover from '../../asset/image/player/nextHover.png';
 interface ActionType{
     playSong: ()=> void;
     pauseSong: ()=>void;
+    playPause: boolean;
 }
 
 function PlayerAction({
     playSong,
-    pauseSong
+    pauseSong,
+    playPause
 }: ActionType){
-    const [playPause, setPlayPause] = useState(true);
     const [hoverAction, setHoverAction] = useState(-1);
 
     const playMusic = () =>{
-        setPlayPause(false); 
         setHoverAction(3);
         playSong();
     }
     const pauseMusic = () =>{
-        setPlayPause(true); 
         setHoverAction(2);
         pauseSong();
     }

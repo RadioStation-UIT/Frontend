@@ -1,0 +1,27 @@
+.home .slide .banner__background_image{
+    min-width: 1180px;
+    min-height: 460px;
+    margin: 12px auto;
+    border-radius: 8px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.home .slide .banner__background_image::before{
+    content: '';
+    position: absolute;
+    display: block;
+    top: 12px;
+    border-radius: 8px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    max-height: 460px;
+    background: linear-gradient(
+    45deg
+    , rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%);
+    z-index: 1;
+}
+.home .slide .carousel-item{
+    text-align: center;
+}
