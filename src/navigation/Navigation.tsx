@@ -1,6 +1,5 @@
 import React from 'react';
 import { Route,Switch } from 'react-router-dom';
-
 import Artists from '../screens/Artists/Artists';
 import Events from '../screens/Events/Events';
 import Home from '../screens/Home/Home';

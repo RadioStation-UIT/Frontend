@@ -1,8 +1,9 @@
 import React from 'react';
+import '../../asset/css/HeaderFooter.css';
 
 function Footer(){
     return(
-        <footer className="text-center text-lg-start bg-light text-muted">
+        <footer className="ft__background text-center text-lg-start text-muted">
             <section
                 className="d-flex justify-content-center justify-content-lg-between p-4 border-bottom"
             >
