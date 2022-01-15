@@ -2,10 +2,25 @@ import react, {useState} from 'react';
 import '../../asset/css/Home.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Carousel} from 'react-bootstrap';
-import { url } from 'inspector';
+import {notification} from '../../api/Notification';
+import {musics} from '../../api/music';
+import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline';
+import {listen} from '../../redux/actions/listen';
+import { useDispatch } from 'react-redux';
+
 
 function BannerComponent(){
-    const [index, setIndex] = useState(0);
+  const [index, setIndex] = useState(0);
+  const dispatch = useDispatch();
+
+  const playMusic = (id: string) => {
+    const music = musics.filter((song)=>{
+      return song.idSong === id;
+    })
+
+    window.localStorage.setItem('music',JSON.stringify(music[0]));
+    dispatch(listen('listen',music[0]));
+  }
 
   const handleSelect = (selectedIndex:any) => {
     setIndex(selectedIndex);
@@ -13,40 +28,36 @@ function BannerComponent(){
 
   return (
     <Carousel activeIndex={index} onSelect={handleSelect}>
-      <Carousel.Item>
-        <div
-          className="d-block w-100 banner__background_image"
-          style={{ backgroundImage: "url('https://camhung.net/wp-content/uploads/2021/08/Taylor-Swift-VMA-2019-billboard-1548-1607693369-compressed.jpg')"}}
-        ></div>
-        <Carousel.Caption>
-          <h3>First slide label</h3>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item>
-        <div
-          className="d-block w-100 banner__background_image"
-          style={{ backgroundImage: "url('https://camhung.net/wp-content/uploads/2021/08/Taylor-Swift-VMA-2019-billboard-1548-1607693369-compressed.jpg')"}}
-        ></div>
-
-        <Carousel.Caption>
-          <h3>Second slide label</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item>
-        <div
-          className="d-block w-100 banner__background_image"
-          style={{ backgroundImage: "url('https://camhung.net/wp-content/uploads/2021/08/Taylor-Swift-VMA-2019-billboard-1548-1607693369-compressed.jpg')"}}
-        ></div>
-
-        <Carousel.Caption>
-          <h3>Third slide label</h3>
-          <p>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-          </p>
-        </Carousel.Caption>
-      </Carousel.Item>
+      {
+        notification.map((notifi,index) => {
+          return(
+            <Carousel.Item key={index} className="banner">
+              <div
+                className="d-block w-100 banner__background_image"
+                style={{ backgroundImage: `url(${notifi.image})`}}
+              ></div>
+              <Carousel.Caption className="banner__display_flex banner__width_height">
+                <div className="banner__conent">
+                  <h1>{notifi.title}</h1>
+                  <p>{notifi.content}</p>
+                  <div className="banner__btn">
+                    {
+                      notifi.type === "Song" ?
+                        <div className="play__song_btn" onClick={()=>playMusic(notifi.idSNEA)}>
+                          <span className="banner__icon">
+                            <PlayCircleOutlineIcon/>
+                          </span>
+                          <span>Listen To Music</span>
+                        </div>
+                      :null
+                    }
+                  </div>
+                </div>
+              </Carousel.Caption>
+          </Carousel.Item>
+          )
+        })
+      }
     </Carousel>
   );
 }

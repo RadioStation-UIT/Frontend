@@ -25,3 +25,56 @@
 .home .slide .carousel-item{
     text-align: center;
 }
+.banner__display_flex{
+    display: flex;
+    justify-content: flex-start;
+    align-items:center;
+}
+.banner__width_height{
+    width: 100%;
+    height: 100%;
+    max-width: 600px;
+}
+.banner .carousel-caption{
+    position: absolute;
+    top: 0px;
+    left: 10%;
+    text-align: left;
+    z-index: 100;
+}
+.banner__conent h1{
+    font-size: 44px;
+    color: #fff !important;
+    margin: 0px;
+    font-weight: bold;
+}
+.banner__conent p{
+    font-size: 17px;
+    line-height: 28px;
+    color: #c0c0c0 !important;
+    margin: 15px 0px 0px;
+}
+.banner__btn{
+    margin-top: 15px;
+    display: inline-block;
+}
+.banner__conent .banner__btn .play__song_btn{
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+    border-radius:8px;
+    padding: 10px 20px;
+    background-color: #222227;
+    color: #fff;
+    transition: .3s;
+}
+.banner__conent .banner__btn:hover .play__song_btn{
+    background-color: #25a56a;
+}
+.banner__conent .banner__btn .banner__icon{
+    color: #25a56a;
+}
+.banner__conent .banner__btn:hover .banner__icon{
+    color: #fff;
+}
