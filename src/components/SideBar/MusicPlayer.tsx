@@ -10,11 +10,15 @@ import QueueMusicIcon from '@mui/icons-material/QueueMusic';
 import {Link} from 'react-router-dom';
 import {useSelector} from 'react-redux';
 import { RootState } from '../../redux/reducers';
+import {listen} from '../../redux/actions/listen';
+import { useDispatch } from 'react-redux';
 
 const player = new Audio();
 let playingMusicCurrent = false;
+let indexSong:number =  parseInt(localStorage.getItem('indexSong')|| '0');
 
 function MusicPlayer(){
+    const dispatch = useDispatch();
     const [currentTime,setCurrentTime] = useState("00:00");
     const [volume,setVolume] = useState<number>(50);
     const [mute, setMute] = useState<boolean>(false)
@@ -22,6 +26,7 @@ function MusicPlayer(){
     player.volume = mute === true ? 0 : volume/100;
     const [playPause, setPlayPause] = useState<boolean>(true);
     const musicRedux = useSelector((state: RootState) => state.music);
+    const albumRedux = useSelector((state: RootState) => state.album);
     const [musicPlayer,setMusicPlayer] = useState<{
         idSong: string,
         nameSong: string,
@@ -35,6 +40,19 @@ function MusicPlayer(){
         },
         playing: boolean
     }>(JSON.parse(localStorage.getItem('music') || '{}'));
+    const [currentAlbum,setCurrentAlbum] = useState<{
+        idSong: string,
+        nameSong: string,
+        url: string,
+        mainImg: string,
+        time: number
+        numberListen: number,
+        singer:{
+            idSinger: string,
+            nameSinger: string,
+        },
+        playing: boolean
+    }[]>(JSON.parse(localStorage.getItem('playlist') || '{}'));
     // listenWhenPlay();
 
     const handleChange = (event: Event, newValue: number | number[]) => {
@@ -56,20 +74,20 @@ function MusicPlayer(){
           setPercent((player.currentTime*100)/musicPlayer.time);
         })
         player.onpause = () =>{
-          player.pause();
+            player.pause();
         }
         player.onplay = () =>{
-          player.play();
+            player.play();
         }
         player.onended = () =>{
             playingMusicCurrent = false;
-            playSong();
+            nextSong();
         }
     }
 
     const playSong = () =>{
         if(playingMusicCurrent === false){
-            player.src = musicPlayer.url || musicRedux.url;
+            player.src = musicRedux.url || musicPlayer.url;
             playingMusicCurrent = true;
         }
         setPlayPause(false);
@@ -80,6 +98,34 @@ function MusicPlayer(){
     const pauseSong = ()=>{
         setPlayPause(true);
         player.pause();
+    }
+
+    const nextSong = ()=>{
+        indexSong += 1;
+        if(indexSong >= currentAlbum.length){ 
+            indexSong = 0;
+            setMusicPlayer(currentAlbum[indexSong]);
+        }else{
+            console.log(indexSong);
+            console.log(currentAlbum);
+            setMusicPlayer(currentAlbum[indexSong]);
+        }
+        window.localStorage.setItem('indexSong',indexSong.toString());
+        window.localStorage.setItem('music',JSON.stringify(currentAlbum[indexSong]));
+        dispatch(listen('listen',currentAlbum[indexSong]));
+    }
+
+    const prevSong = ()=>{
+        indexSong -= 1;
+        if(indexSong < 0){ 
+            indexSong = currentAlbum.length-1;
+            setMusicPlayer(currentAlbum[indexSong]);
+        }else{
+            setMusicPlayer(currentAlbum[indexSong]);
+        }
+        window.localStorage.setItem('indexSong',indexSong.toString());
+        window.localStorage.setItem('music',JSON.stringify(currentAlbum[indexSong]));
+        dispatch(listen('listen',currentAlbum[indexSong]));
     }
 
     useEffect(() => {
@@ -94,6 +140,7 @@ function MusicPlayer(){
         if (Object.keys(musicRedux).length !== 0){
             playingMusicCurrent = false;
             setMusicPlayer(musicRedux);
+            setCurrentAlbum(albumRedux);
             playSong();
         }else{
             setMusicPlayer(JSON.parse(localStorage.getItem('music') || '{}'));
@@ -117,7 +164,13 @@ function MusicPlayer(){
                                 </div>
                             </div>
                             <div className="sb__music__control">
-                                <Action playPause={playPause} playSong={playSong} pauseSong={pauseSong}/>
+                                <Action 
+                                    playPause={playPause} 
+                                    playSong={playSong} 
+                                    pauseSong={pauseSong} 
+                                    nextSong={nextSong} 
+                                    prevSong={prevSong}
+                                />
                                 <Slider
                                     size="small"
                                     value={percent}

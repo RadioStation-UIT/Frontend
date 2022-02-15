@@ -16,11 +16,11 @@ const notification: {
     },
     {
         idNot: 'not-2312-ad-cvjx',
-        title: 'Sự kiện',
-        type: 'Events',
-        idSNEA: 'EKALDF',
-        image: 'https://i.ytimg.com/vi/hvIg3PTJWxs/maxresdefault.jpg',
-        content: 'Sự kiện Tomorrow Land được tổ chức hằng năm ở New York hãy tham gia sự kiện để trai nghiệm lễ hộ âm nhạc lớn nhất hành tinh'
+        title: 'Bài Hát Mới',
+        type: 'Song',
+        idSNEA: 'SWBFXKV',
+        image: 'https://m.media-amazon.com/images/M/MV5BNmNmNGExNDctM2Q3MC00MTU5LTkyYzMtMzMyYmI2MTA3MjU3XkEyXkFqcGdeQXVyNjE0ODc0MDc@._V1_.jpg',
+        content: '....'
     },
     {
         idNot: 'not-2312-ad-vcx',

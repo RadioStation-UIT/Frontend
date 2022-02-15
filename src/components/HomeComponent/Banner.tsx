@@ -2,7 +2,7 @@ import react, {useState} from 'react';
 import '../../asset/css/Home.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Carousel} from 'react-bootstrap';
-import {notification} from '../../api/Notification';
+import {notification} from '../../api/notification';
 import {musics} from '../../api/music';
 import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline';
 import {listen} from '../../redux/actions/listen';
