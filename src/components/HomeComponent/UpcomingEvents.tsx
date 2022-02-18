@@ -1,16 +1,16 @@
-import React from 'react';
+import react from 'React';
 import '../../asset/css/Home.css';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import {Link} from 'react-router-dom';
-import NewReleasesChild from './NewReleasesChild';
+import UpcomingEventsChild from './UpcomingEventsChild';
 
-function NewReleases(){
+function UpcomingEvents(){
     return(
         <div className="hp__margin_top_32">
             <div className="hp__header">
                 <div className="hp__display_flex">
-                    <h2 className="hp__title_h2">New Releases</h2>
-                    <Link to="/albums/new-releases">
+                    <h2 className="hp__title_h2">Upcoming Events</h2>
+                    <Link to="/events">
                         <div className="hp__see_all">
                             <p>See all</p>
                             <ArrowForwardIcon/>
@@ -18,9 +18,9 @@ function NewReleases(){
                     </Link>
                 </div>
             </div>
-            <NewReleasesChild/>
+            <UpcomingEventsChild/>
         </div>
     )
 }
 
-export default NewReleases;
+export default UpcomingEvents;

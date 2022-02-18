@@ -106,8 +106,6 @@ function MusicPlayer(){
             indexSong = 0;
             setMusicPlayer(currentAlbum[indexSong]);
         }else{
-            console.log(indexSong);
-            console.log(currentAlbum);
             setMusicPlayer(currentAlbum[indexSong]);
         }
         window.localStorage.setItem('indexSong',indexSong.toString());
