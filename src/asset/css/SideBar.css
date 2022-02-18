@@ -49,10 +49,11 @@
     padding-bottom: 10px !important;
 }
 .sb__music__current{
-    padding-top: 7px !important;
+    padding-top: 5px !important;
     display:flex;
     justify-content: center;
     width: 100%;
+    min-height: 291px;
 }
 .sb__music__main__image, .sb__music__main__image img{
     width: 100%;
@@ -133,6 +134,12 @@
 }
 .sb__music__time{
     margin-bottom: 8px;
+}
+.sb__action svg{
+    font-size: 28px;
+}
+.sb__action__prev:hover svg,.sb__action__next:hover svg,.sb__action__play:hover svg,.sb__action__pause:hover svg{
+    color: #25a56a;
 }
 /*padding*/
 

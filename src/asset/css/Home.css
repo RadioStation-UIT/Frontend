@@ -78,3 +78,355 @@
 .banner__conent .banner__btn:hover .banner__icon{
     color: #fff;
 }
+.hp__header{
+    position: relative;
+}
+.hp__see_all{
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+}
+.hp__see_all p{
+    font-size: 16px;
+    margin: 0px;
+    font-weight: 500;
+}
+.hp__see_all svg{
+    margin-top: 4px;
+    width: 18px;
+}
+.hp__see_all:hover p{
+    color: #fff !important;
+}
+.hp__see_all:hover svg{
+    color: #25a56a;
+}
+.hp__header a{
+    text-decoration: none;
+    color: #c0c0c0;
+}
+.hp__title_h2{
+    margin: 0px !important;
+}
+.nrc__album_cover{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    background-color: #000;
+}
+.nrc__album_cover img{
+    width: 100%;
+    height: 171.66px;
+    display: block;
+    position: relative;
+    z-index: 1;
+    opacity: 1;
+    transition: 0.5s ease;
+}
+.nrc__play_album{
+    position: absolute;
+    z-index: 2;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 56px;
+    height: 56px;
+    top: 50%;
+    left: 50%;
+    margin: -28px 0 0 -28px;
+    border-radius: 12px;
+    background-color: #222227;
+    transform: scale(0.8);
+    transition: 0.5s ease;
+    opacity: 0;
+    border: 1px solid rgba(255,255,255,0.05);
+    cursor: pointer;
+}
+.nrc__album_cover:hover .nrc__play_album{
+    opacity: 1;
+    transform: scale(1);
+}
+.nrc__album_cover:hover img{
+    opacity: 0.6;
+    transform: scale(1.08);
+}
+.nrc__play_album img{
+    width: 30px;
+    height: 30px;
+}
+.nrc__album_stat{
+    position: absolute;
+    z-index: 2;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    color: #fff;
+    font-size: 12px;
+    transform: scale(0.8);
+    opacity: 0;
+    transition: 0.5s ease;
+}
+.nrc__album_cover:hover .nrc__album_stat{
+    opacity: 1;
+    transform: scale(1);
+}
+.nrc__album_stat .nrc__album_stat_number_song, .nrc__album_stat .nrc__album_stat_listner{
+    display: flex;
+    align-items: center;
+}
+.nrc__album_stat_number_song svg, .nrc__album_stat_listner svg{
+    margin-right: 4px !important;
+}
+.nrc__album_stat_number_song{
+    margin-right: 20px;
+}
+.nrc__album_stat_number_song span, .nrc__album_stat_listner span{
+    font-size: 14px;
+}
+.nrc__play_album svg{
+    transition: .3s;
+    font-size: 40px;
+}
+.nrc__play_album:hover svg{
+    color: #25a56a;
+}
+.nrc__album_title{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    margin-top: 5px;
+}
+.nrc__album_title a{
+    text-decoration: none;
+}
+.nrc__album_title h3{
+    display: block;
+    width: 100%;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    transition: .2s;
+}
+.nrc__album_title h3:hover{
+    color: #25a56a;
+}
+.nrc__album_name_singer{
+    display: block;
+    width: 100%;
+    color: #c0c0c0;
+    font-size: 14px;
+    font-weight: 400;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+}
+.nrc__album_name_singer a{
+    color: #c0c0c0;
+    text-decoration: none;
+    transition: .2s;
+}
+.nrc__album_name_singer a:hover{
+    color: #25a56a;
+}
+.uec__event{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    margin-top: 20px;
+    width: 100%;
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+    padding: 20px;
+    height: 300px;
+}
+.uec__event::before{
+    content: '';
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+    opacity: 0.6;
+    transition: opacity 0.5s ease;
+    z-index: 1;
+}
+.uec__event:hover::before{
+    opacity: 0.8;
+}
+.uec__cover_event{
+    margin-right: 30px;
+    width: 373.333px !important;
+    min-height: 1px;
+}
+.uec__event_date{
+    position: relative;
+    z-index: 2;
+    font-size: 18px;
+    font-weight: 400;
+    color: #fff;
+}
+.uec__event_time{
+    position: relative;
+    z-index: 2;
+    font-size: 14px;
+    color: #c0c0c0;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+.uec__event a{
+    text-decoration: none;
+    z-index: 100;
+    color: #fff;
+}
+.uec__event a:hover{
+    color: #25a56a;
+}
+.uec__event_title{
+    position: relative;
+    font-weight: 400;
+    font-size: 24px;
+    margin-bottom: 5px;
+    width: 100%;
+}
+.uec__event_description{
+    position: relative;
+    z-index: 2;
+    font-size: 14px;
+    color: #fff;
+    line-height: 24px;
+    margin-bottom: 0;
+}
+.uec__break_word{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    width: 100%;
+}
+.uec__buy_ticket{
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+.uec__buy_ticket button{
+    min-width: 130px;
+    height: 40px;
+    border-radius: 12px;
+    background-color: #222227;
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 14px;
+    z-index: 2;
+    font-weight: 500;
+    padding: 0 15px;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+.css-1rwt2y5-MuiButtonBase-root-MuiButton-root:hover{
+    color: #fff !important;
+    background-color: #25a56a !important;
+    border-color: #25a56a !important;
+}
+.uec__buy p{
+    margin: 0px 0px 0px 8px;
+
+}
+.uec__sold_out{
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+.uec__sold_out button{
+    min-width: 130px;
+    height: 40px;
+    border-radius: 12px;
+    background-color: #25a56a;
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 14px;
+    z-index: 2;
+    font-weight: 500;
+    padding: 0 15px;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+.uec__paid .MuiPaper-root{
+    background-color: #16151a !important;
+    z-index: 100;
+}
+.uec__paid .css-bdhsul-MuiTypography-root-MuiDialogTitle-root{
+    font-size: 16px;
+    font-weight: 500;
+    color: #fff;
+    /* margin-bottom: 20px; */
+}
+.uec__sign_label{
+    font-weight: 400;
+    font-size: 14px;
+    color: #c0c0c0;
+    margin-bottom: 5px;
+    padding-left: 5px;
+}
+.uec__sign_value{
+    font-size: 24px;
+    color: #fff;
+    display: block;
+    font-weight: 500;
+    margin-left: 10px;
+}
+.uec .css-1sumxir-MuiFormLabel-root-MuiInputLabel-root{
+    color: #fff !important;
+}
+.uec .css-1yk1gt9-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root{
+    color: #fff !important;
+}
+/**margin**/
+.hp__margin_top_32{
+    margin-top: 32px;
+}
+.nrc__album{
+    margin-top: 16px !important;
+}
+/***display*/
+.hp__header .hp__display_flex{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.uec_display_flex{
+    display:flex;
+    align-items: flex-end;
+    margin-bottom: 20px !important;
+}
+/*slick*/
+.slick-arrow{
+    display: none !important;
+}
