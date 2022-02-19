@@ -26,7 +26,7 @@ const notification: {
         idNot: 'not-2312-ad-vcx',
         title: 'Bài nhạc Taylor',
         type: 'Song',
-        idSNEA: 'dsfjsdfj',
+        idSNEA: 'SWAFXZK',
         image: 'https://www.teahub.io/photos/full/55-550847_love-story-taylor-swift-love-story.jpg',
         content: 'Bài hát được ra đời khi ba cô ấy cấm cô ấy yêu khi học cấp 3 :V'
     }

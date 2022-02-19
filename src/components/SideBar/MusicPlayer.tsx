@@ -102,15 +102,24 @@ function MusicPlayer(){
 
     const nextSong = ()=>{
         indexSong += 1;
+        console.log(indexSong);
+        console.log(currentAlbum.length);
+        console.log(indexSong === currentAlbum.length); 
         if(indexSong >= currentAlbum.length){ 
+            console.log(1);
             indexSong = 0;
             setMusicPlayer(currentAlbum[indexSong]);
         }else{
+            console.log(2);
             setMusicPlayer(currentAlbum[indexSong]);
         }
         window.localStorage.setItem('indexSong',indexSong.toString());
         window.localStorage.setItem('music',JSON.stringify(currentAlbum[indexSong]));
-        dispatch(listen('listen',currentAlbum[indexSong]));
+        if (currentAlbum[indexSong] !== musicRedux) {
+            dispatch(listen('listen',currentAlbum[indexSong]));
+        }else{
+            playSong();
+        }
     }
 
     const prevSong = ()=>{
@@ -123,7 +132,11 @@ function MusicPlayer(){
         }
         window.localStorage.setItem('indexSong',indexSong.toString());
         window.localStorage.setItem('music',JSON.stringify(currentAlbum[indexSong]));
-        dispatch(listen('listen',currentAlbum[indexSong]));
+        if (currentAlbum[indexSong] !== musicRedux) {
+            dispatch(listen('listen',currentAlbum[indexSong]));
+        }else{
+            playSong();
+        }
     }
 
     useEffect(() => {
@@ -138,7 +151,7 @@ function MusicPlayer(){
         if (Object.keys(musicRedux).length !== 0){
             playingMusicCurrent = false;
             setMusicPlayer(musicRedux);
-            setCurrentAlbum(albumRedux);
+            setCurrentAlbum(Object.keys(albumRedux).length === 0 ? currentAlbum : albumRedux);
             playSong();
         }else{
             setMusicPlayer(JSON.parse(localStorage.getItem('music') || '{}'));

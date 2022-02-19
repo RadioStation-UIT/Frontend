@@ -408,12 +408,66 @@
 .uec .css-1yk1gt9-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root{
     color: #fff !important;
 }
+.css-oe0os1-MuiSvgIcon-root{
+    color: #fff !important;
+}
+.css-1480iag-MuiInputBase-root-MuiInput-root{
+    color: #fff !important;
+}
+.css-aqpgxn-MuiFormLabel-root-MuiInputLabel-root{
+    color: #fff !important;
+}
+.css-1c2i806-MuiFormLabel-root-MuiInputLabel-root{
+    color: #fff !important;
+}
+.css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root{
+    color: #fff !important;
+}
+.css-1sumxir-MuiFormLabel-root-MuiInputLabel-root{
+    color: #fff !important;
+}
+.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input{
+    color: #fff !important;
+}
+.css-hfutr2-MuiSvgIcon-root-MuiSelect-icon{
+    color: #fff !important;
+}
+.uec__bill span{
+    font-weight: 400;
+    font-size: 14px;
+    color: #c0c0c0;
+    margin-bottom: 0px;
+    padding-left: 5px;
+}
+.MuiButton-text{
+    color: #fff !important;
+}
+.uec__prev_next{
+    margin-top: 12px;
+    margin-right: 28px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 8px;
+}
+.uec__prev, .uec__next{
+    cursor: pointer;
+}
+.uec__prev:hover, .uec__next:hover{
+    color: #25a56a
+}
 /**margin**/
 .hp__margin_top_32{
     margin-top: 32px;
 }
 .nrc__album{
     margin-top: 16px !important;
+}
+.uec__margin_bottom_20{
+    margin-bottom: 20px !important;
+}
+.uec__margin_bottom_8{
+    margin-bottom: 8px !important;
 }
 /***display*/
 .hp__header .hp__display_flex{
@@ -424,7 +478,6 @@
 .uec_display_flex{
     display:flex;
     align-items: flex-end;
-    margin-bottom: 20px !important;
 }
 /*slick*/
 .slick-arrow{
