@@ -34,10 +34,10 @@ function MusicPlayer(){
         mainImg: string,
         time: number
         numberListen: number,
-        singer:{
-            idSinger: string,
-            nameSinger: string,
-        },
+        artists:{
+            idArtists: string,
+            nameArtists: string,
+        }[],
         playing: boolean
     }>(JSON.parse(localStorage.getItem('music') || '{}'));
     const [currentAlbum,setCurrentAlbum] = useState<{
@@ -47,10 +47,10 @@ function MusicPlayer(){
         mainImg: string,
         time: number
         numberListen: number,
-        singer:{
-            idSinger: string,
-            nameSinger: string,
-        },
+        artists:{
+            idArtists: string,
+            nameArtists: string,
+        }[],
         playing: boolean
     }[]>(JSON.parse(localStorage.getItem('playlist') || '{}'));
     // listenWhenPlay();
@@ -171,7 +171,21 @@ function MusicPlayer(){
                             <div className="sb__music__track">
                                 <div>
                                     <p className="sb__name_song sb__margin_none">{musicPlayer.nameSong}</p>
-                                    <p className="sb__margin_none">{musicPlayer.singer.nameSinger}</p>
+                                    <p className="sb__margin_none">
+                                        {
+                                            musicPlayer.artists.map((artist,index)=>{
+                                                return(
+                                                    <>
+                                                        {
+                                                            index === 0 ?
+                                                                <span>{artist.nameArtists}</span>
+                                                            :   <span> & {artist.nameArtists}</span>
+                                                        }
+                                                    </>
+                                                )
+                                            })
+                                        }
+                                    </p>
                                 </div>
                             </div>
                             <div className="sb__music__control">

@@ -65,14 +65,14 @@ function NewReleasesChild(){
                                                             {
                                                                 index === 0 ?
                                                                 <span>
-                                                                    <Link to={'/singer/'+ singer}>
+                                                                    <Link to={'/artists/'+ singer}>
                                                                         {singer}
                                                                     </Link>
                                                                 </span>
                                                                 : 
                                                                 <span>
                                                                     <span> & </span>
-                                                                    <Link to={'/singer/'+ singer}>
+                                                                    <Link to={'/artists/'+ singer}>
                                                                         {singer}
                                                                     </Link>
                                                                 </span>

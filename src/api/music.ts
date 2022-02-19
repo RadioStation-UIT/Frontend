@@ -5,11 +5,10 @@ const musics: {
     mainImg: string,
     time: number
     numberListen: number,
-    singer:{
-        idSinger: string,
-        nameSinger: string,
-    },
-    playing: boolean
+    artists:{
+        idArtists: string,
+        nameArtists: string,
+    }[]
 }[] = [
     {
         idSong: 'SWAFXZK',
@@ -18,11 +17,12 @@ const musics: {
         mainImg: 'https://i.ytimg.com/vi/6RssL81oWOI/maxresdefault.jpg',
         time: 275,
         numberListen: 0,
-        singer:{
-            idSinger: 'sdfsd11',
-            nameSinger: 'Taylor Swift'
-        },
-        playing: false
+        artists:[
+            {
+                idArtists: 'AR-ASKFAZN',
+                nameArtists: 'Taylor Swift'
+            }
+        ]
     },
     {
         idSong: 'SWAFXZV',
@@ -31,11 +31,12 @@ const musics: {
         mainImg: 'https://i.ytimg.com/vi/Xgf9XDT846M/maxresdefault.jpg',
         time: 232,
         numberListen: 0,
-        singer:{
-            idSinger: 'sdfsd11',
-            nameSinger: 'Taylor Swift'
-        },
-        playing: false
+        artists:[
+            {
+                idArtists: 'AR-ASKFAZN',
+                nameArtists: 'Taylor Swift'
+            }
+        ]
     },
     {
         idSong: 'SWAFXKV',
@@ -44,11 +45,12 @@ const musics: {
         mainImg: 'https://i.ytimg.com/vi/Pwo8TtotyXA/maxresdefault.jpg',
         time: 235,
         numberListen: 0,
-        singer:{
-            idSinger: 'sdfsd11',
-            nameSinger: 'Taylor Swift'
-        },
-        playing: false
+        artists:[
+            {
+                idArtists: 'AR-ASKFAZN',
+                nameArtists: 'Taylor Swift'
+            }
+        ]
     },
     {
         idSong: 'SWBFXKV',
@@ -57,11 +59,16 @@ const musics: {
         mainImg: 'http://theharmonica.vn/wp-content/uploads/2019/02/girlslikeyou.jpg',
         time: 279,
         numberListen: 0,
-        singer:{
-            idSinger: 'SINGERKAL',
-            nameSinger: 'Maroon 5'
-        },
-        playing: false
+        artists:[
+            {
+                idArtists: 'AR-ASKFAZL',
+                nameArtists: 'Maroon 5'
+            },
+            {
+                idArtists: 'AR-CBAKSJF',
+                nameArtists: 'Cardi B'
+            }
+        ]
     }
 ]
 

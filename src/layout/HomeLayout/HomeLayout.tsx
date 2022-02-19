@@ -4,6 +4,7 @@ import '../../asset/css/Home.css';
 import BannerComponent from '../../components/HomeComponent/Banner';
 import NewReleases from '../../components/HomeComponent/NewReleases';
 import UpcomingEvents from '../../components/HomeComponent/UpcomingEvents';
+import TopArtists from '../../components/HomeComponent/TopArtists';
 
 function HomeLayout(){
     return(
@@ -11,6 +12,7 @@ function HomeLayout(){
             <BannerComponent/>
             <NewReleases/>
             <UpcomingEvents/>
+            <TopArtists/>
         </div>
     )
 }
