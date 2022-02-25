@@ -6,13 +6,76 @@ import NewReleases from '../../components/HomeComponent/NewReleases';
 import UpcomingEvents from '../../components/HomeComponent/UpcomingEvents';
 import TopArtists from '../../components/HomeComponent/TopArtists';
 
-function HomeLayout(){
-    return(
+interface HomeType {
+    allTrack: {
+        idTrack: string,
+        nameSong: string,
+        url: string,
+        mainImg: string,
+        duration: number,
+        numberListen: number,
+        like: number,
+        artists: {
+            idArtists: string,
+            nameArtists: string,
+        }[],
+        country: string,
+        type: string[],
+        weeklyViews: number,
+        likeOfWeek: number,
+    }[];
+    allNotification: {
+        idNotification: string;
+        title: string;
+        type: string;
+        idSNEA: string;
+        image: string;
+        content: string;
+    }[];
+    allAlbum: {
+        idAlbum: string,
+        idTrack: string[],
+        artists: {
+            idArtists: string,
+            nameArtists: string,
+        }[],
+        like: number,
+        name: string,
+        image: string
+    }[];
+    allArtists: {
+        idArtists: string,
+        name: string,
+        stageName: string,
+        birthday: string,
+        nation: string,
+        prize: string[],
+        description: string,
+        image: string,
+        like: number,
+    }[];
+}
+
+function HomeLayout({
+    allTrack,
+    allNotification,
+    allAlbum,
+    allArtists
+}: HomeType) {
+    return (
         <div className="home container">
-            <BannerComponent/>
-            <NewReleases/>
-            <UpcomingEvents/>
-            <TopArtists/>
+            <BannerComponent
+                allTrack={allTrack}
+                allNotification={allNotification}
+            />
+            <NewReleases
+                allTrack={allTrack}
+                allAlbum={allAlbum}
+            />
+            <UpcomingEvents />
+            <TopArtists 
+                allArtists={allArtists}
+            />
         </div>
     )
 }

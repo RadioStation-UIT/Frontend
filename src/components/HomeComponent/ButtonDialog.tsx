@@ -56,8 +56,6 @@ interface Event{
         }[],
         ticket: number;
         description: string;
-        idDiscount: any;
-        price: number;
     }
 }
 

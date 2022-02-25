@@ -13,7 +13,7 @@ function SideBar(){
                     <div className="sb__display_flex sb__logo">
                         <img className="sb__img" src={logo} alt="logo"/>
                         <div className="sb__text">
-                            <p>Radio Station UIT</p>
+                            <p>Pirex Radio</p>
                         </div>
                     </div>
                 </Link>

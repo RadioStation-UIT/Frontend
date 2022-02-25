@@ -6,20 +6,52 @@ import FormatListBulletedOutlinedIcon from '@mui/icons-material/FormatListBullet
 import PlayArrowOutlinedIcon from '@mui/icons-material/PlayArrowOutlined';
 import HeadphonesIcon from '@mui/icons-material/Headphones';
 import Grid from '@mui/material/Grid';
-import {tracks} from '../../api/listTracks';
 import {Link} from 'react-router-dom';
 import {album} from '../../redux/actions/playAlbum';
 import {listen} from '../../redux/actions/listen';
-import {musics} from '../../api/music';
 import { useDispatch } from 'react-redux';
 
-function NewReleasesChild(){
+interface NewReleasesType {
+    allTrack: {
+        idTrack: string,
+        nameSong: string,
+        url: string,
+        mainImg: string,
+        duration: number,
+        numberListen: number,
+        like: number,
+        artists: {
+            idArtists: string,
+            nameArtists: string,
+        }[],
+        country: string,
+        type: string[],
+        weeklyViews: number,
+        likeOfWeek: number,
+    }[];
+    allAlbum: {
+        idAlbum: string,
+        idTrack: string[],
+        artists: {
+            idArtists: string,
+            nameArtists: string,
+        }[],
+        like: number,
+        name: string,
+        image: string
+    }[];
+}
+
+function NewReleasesChild({
+    allTrack,
+    allAlbum
+}: NewReleasesType){
     const dispatch = useDispatch();
 
     const playAlbum = (id: string) =>{
-        const indexAlbum = tracks.findIndex(track => track.id === id);
-        const listTrack = musics.filter((track)=>{
-            return tracks[indexAlbum].idTrack.includes(track.idSong);
+        const indexAlbum = allAlbum.findIndex(album => album.idAlbum === id);
+        const listTrack = allTrack.filter((track)=>{
+            return allAlbum[indexAlbum].idTrack.includes(track.idTrack);
         })
         window.localStorage.setItem('music',JSON.stringify(listTrack[0]));
         window.localStorage.setItem('playlist',JSON.stringify(listTrack));
@@ -32,7 +64,7 @@ function NewReleasesChild(){
             <Box sx={{ flexGrow: 1 }}>
                 <Grid container spacing={2}>
                     {
-                        tracks.map((album, index) =>{
+                        allAlbum.map((album, index) =>{
                             return(
                                 <Grid className="nrc__album" item xl={2} xs={6} md={8}>
                                     <div className="nrc__album_cover">
@@ -40,7 +72,7 @@ function NewReleasesChild(){
                                         <div 
                                             className="nrc__play_album"
                                         >
-                                            <PlayArrowOutlinedIcon onClick={()=>playAlbum(album.id)}/>
+                                            <PlayArrowOutlinedIcon onClick={()=>playAlbum(album.idAlbum)}/>
                                         </div>
                                         <div className="nrc__album_stat">
                                             <span className="nrc__album_stat_number_song">
@@ -49,31 +81,32 @@ function NewReleasesChild(){
                                             </span>
                                             <span className="nrc__album_stat_listner">
                                                 <HeadphonesIcon/>
-                                                <span>{album.listener}</span>
+                                                <span>{album.like}</span>
                                             </span>
                                         </div>
                                     </div>
                                     <div className="nrc__album_title">
-                                        <Link to={'/album/' + album.id}>
+                                        <Link to={'/album/' + album.idAlbum}>
                                             <h3>{album.name}</h3>
                                         </Link>
                                         <div className="nrc__album_name_singer">
                                             {
-                                                album.singer.map((singer,index)=>{
+                                                album.artists.map((artist,index)=>{
+                                                    console.log(artist)
                                                     return(
                                                         <>
                                                             {
                                                                 index === 0 ?
                                                                 <span>
-                                                                    <Link to={'/artists/'+ singer}>
-                                                                        {singer}
+                                                                    <Link to={'/artists/'+ artist.idArtists}>
+                                                                        {artist.nameArtists}
                                                                     </Link>
                                                                 </span>
                                                                 : 
                                                                 <span>
                                                                     <span> & </span>
-                                                                    <Link to={'/artists/'+ singer}>
-                                                                        {singer}
+                                                                    <Link to={'/artists/'+ artist.idArtists}>
+                                                                        {artist.nameArtists}
                                                                     </Link>
                                                                 </span>
                                                             }

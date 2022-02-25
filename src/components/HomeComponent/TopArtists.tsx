@@ -4,7 +4,23 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import {Link} from 'react-router-dom';
 import TopArtistsChild from './TopArtistsChild';
 
-function TopArtists(){
+interface TopArtists{
+    allArtists: {
+        idArtists: string,
+        name: string,
+        stageName: string,
+        birthday: string,
+        nation: string,
+        prize: string[],
+        description: string,
+        image: string,
+        like: number,
+    }[];
+}
+
+function TopArtists({
+    allArtists
+}: TopArtists){
     return(
         <div className="hp__margin_top_32">
             <div className="hp__header">
@@ -18,7 +34,7 @@ function TopArtists(){
                     </Link>
                 </div>
             </div>
-            <TopArtistsChild/>
+            <TopArtistsChild allArtists={allArtists}/>
         </div>
     )
 }

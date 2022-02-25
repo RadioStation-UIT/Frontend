@@ -4,15 +4,27 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { Link } from 'react-router-dom';
-import { artists } from '../../api/artists'
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
-import PlayArrowOutlinedIcon from '@mui/icons-material/PlayArrowOutlined';
-import HeadphonesIcon from '@mui/icons-material/Headphones';
-import FormatListBulletedOutlinedIcon from '@mui/icons-material/FormatListBulletedOutlined';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 
-function TopArtistsChild() {
+interface TopArtistsChild{
+    allArtists: {
+        idArtists: string,
+        name: string,
+        stageName: string,
+        birthday: string,
+        nation: string,
+        prize: string[],
+        description: string,
+        image: string,
+        like: number,
+    }[];
+}
+
+function TopArtistsChild({
+    allArtists
+}: TopArtistsChild) {
     const sliderRef = React.useRef<Slider | null>(null);
     const settings = {
         infinite: true,
@@ -32,11 +44,11 @@ function TopArtistsChild() {
         <div className="tac">
             <Slider ref={sliderRef} {...settings}>
                 {
-                    artists.map((artist, index) => {
+                    allArtists.map((artist, index) => {
                         return (
                             <div className="tac__cover_artist">
                                 <div className="tac__artist">
-                                    <img src={artist.image} />
+                                    <img src={artist.image} alt={artist.stageName}/>
                                     <div
                                         className="nrc__play_album"
                                     >
@@ -50,8 +62,8 @@ function TopArtistsChild() {
                                     </div>
                                 </div>
                                 <div className="nrc__album_title">
-                                    <Link to={'/artists/' + artist.idArtist}>
-                                        <h3>{artist.name}</h3>
+                                    <Link to={'/artists/' + artist.idArtists}>
+                                        <h3>{artist.stageName}</h3>
                                     </Link>
                                 </div>
                             </div>
