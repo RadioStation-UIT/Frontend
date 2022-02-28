@@ -160,6 +160,7 @@ function MusicPlayer() {
             playingMusicCurrent = false;
             setMusicPlayer(musicRedux);
             setCurrentAlbum(Object.keys(albumRedux).length === 0 ? currentAlbum : albumRedux);
+            indexSong = parseInt(localStorage.getItem('indexSong') || '0');
             playSong();
         } else {
             setMusicPlayer(JSON.parse(localStorage.getItem('music') || '{}'));
