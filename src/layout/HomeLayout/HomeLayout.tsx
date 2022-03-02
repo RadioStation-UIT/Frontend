@@ -6,6 +6,7 @@ import NewReleases from '../../components/HomeComponent/NewReleases';
 import UpcomingEvents from '../../components/HomeComponent/UpcomingEvents';
 import TopArtists from '../../components/HomeComponent/TopArtists';
 import TopTrack from '../../components/HomeComponent/TopTrack';
+import HotNews from '../../components/HomeComponent/HotNews';
 
 interface HomeType {
     allTrack: {
@@ -55,13 +56,27 @@ interface HomeType {
         image: string,
         like: number,
     }[];
+    allNews: {
+        idNews: string,
+        nameNews: string,
+        timeUp: Date,
+        like: number,
+        content: string,
+        comments: {
+            idUser: string,
+            content: string,
+            like: number
+        }[],
+        image: string,
+    }[]
 }
 
 function HomeLayout({
     allTrack,
     allNotification,
     allAlbum,
-    allArtists
+    allArtists,
+    allNews
 }: HomeType) {
     return (
         <div className="home container">
@@ -80,6 +95,7 @@ function HomeLayout({
             <TopTrack
                 allTrack={allTrack}
             />
+            <HotNews allNews={allNews}/>
         </div>
     )
 }

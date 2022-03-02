@@ -64,6 +64,22 @@ function Home() {
         }[]
     >([])
 
+    const [allNews, setAllNews] = useState<
+        {
+            idNews: string,
+            nameNews: string,
+            timeUp: Date,
+            like: number,
+            content: string,
+            comments: {
+                idUser: string,
+                content: string,
+                like: number
+            }[],
+            image: string,
+        }[]
+    >([])
+
     const fetchAllTrack = async () => {
         return axios.get("http://localhost:5000/api/track")
             .then((res) => { setAllTrack(res.data); setIndex(index++) })
@@ -90,6 +106,12 @@ function Home() {
             .catch((err) => { console.log(err) })
     }
 
+    const fecthNews = async () => {
+        return axios.get("http://localhost:5000/api/news")
+            .then((res) => { setAllNews(res.data); setIndex(index++) })
+            .catch((err) => { console.log(err) })
+    }
+
     useEffect(() => {
         fetchAllTrack()
     }, [])
@@ -105,15 +127,20 @@ function Home() {
     useEffect(() => {
         fecthAllArtist()
     }, [])
+
+    useEffect(() => {
+        fecthNews()
+    }, [])
     return (
         <>
             {
-                index >= 2 ?
+                index >= 4 ?
                     <HomeLayout
                         allTrack={allTrack}
                         allNotification={allNotification}
                         allAlbum={allAlbum}
                         allArtists={allArtists}
+                        allNews={allNews}
                     /> : <h1>Loadding</h1>
             }
         </>

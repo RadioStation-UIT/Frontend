@@ -3,7 +3,7 @@ import '../../asset/css/HeaderFooter.css';
 
 function Footer(){
     return(
-        <footer className="ft__background text-center text-lg-start text-muted">
+        <footer className="ft__background text-center text-lg-start text-muted ft__margin_top">
             <section
                 className="d-flex justify-content-center justify-content-lg-between p-4 border-bottom"
             >
