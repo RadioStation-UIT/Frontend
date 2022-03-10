@@ -4,6 +4,7 @@ import logo from "../../asset/image/logo.jpg";
 import {Link} from "react-router-dom";
 import Limitations from './Limitations';
 import MusicPlayer from './MusicPlayer';
+import LibraryMusicIcon from '@mui/icons-material/LibraryMusic';
 
 function SideBar(){
     return(
@@ -11,7 +12,7 @@ function SideBar(){
             <div className="sb__logo">
                 <Link to="/">
                     <div className="sb__display_flex sb__logo">
-                        <img className="sb__img" src={logo} alt="logo"/>
+                        <LibraryMusicIcon/>
                         <div className="sb__text">
                             <p>Pirex Radio</p>
                         </div>

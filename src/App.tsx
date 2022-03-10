@@ -1,4 +1,4 @@
-import React from 'react';
+import react, {useEffect} from 'react';
 import './App.css';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
@@ -7,8 +7,23 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import Navigation from './navigation/Navigation';
+import axios from 'axios';
 
 function App() {
+  // const demoToken = async () => {
+  //   return axios.get("http://localhost:5000/api/user/track-by-userId",{
+  //     headers: {
+  //       Authorization: "Bearer " + localStorage.getItem("token")
+  //     }
+  //   })
+  //     .then((res) => { console.log(res) })
+  //     .catch((err) => { console.log(err) })
+  // }
+
+  // useEffect(() => {
+  //   demoToken()
+  // }, [])
+
   return (
     <div className="App">
       <Router>

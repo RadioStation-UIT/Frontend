@@ -7,10 +7,20 @@ import News from '../screens/News/News';
 import RankMusic from '../screens/RankMusic/RankMusic';
 import Store from '../screens/Store/Store';
 import Albums from '../screens/Albums/Albums';
+import SignIn from '../screens/SignIn/SignIn';
+import SignUp from '../screens/SignUp/SignUp';
 
 function Navigation(){
     return(
         <Switch>
+            {/* user */}
+            <Route path='/sign-in'>
+                <SignIn/>
+            </Route>
+            <Route path='/sign-up'>
+                <SignUp/>
+            </Route>
+            
             {/* everyone */}
             <Route path='/albums'>
                 <Albums/>
