@@ -27,7 +27,6 @@ function HotNewsChild({
 }: HotNewsChild) {
 
     let time2 = moment();
-    console.log(time2)
     return (
         <div className="hnc">
             <Box sx={{ flexGrow: 1 }}>

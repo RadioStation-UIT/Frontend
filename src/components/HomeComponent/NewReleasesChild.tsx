@@ -92,7 +92,6 @@ function NewReleasesChild({
                                         <div className="nrc__album_name_singer">
                                             {
                                                 album.artists.map((artist,index)=>{
-                                                    console.log(artist)
                                                     return(
                                                         <>
                                                             {

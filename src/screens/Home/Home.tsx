@@ -5,7 +5,6 @@ import {Endpoints} from '../../api/Endpoint';
 
 function Home() {
     let [index, setIndex] = useState(0);
-    console.log(index);
 
     const [allTrack, setAllTrack] = useState<
         {

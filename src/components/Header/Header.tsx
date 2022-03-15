@@ -21,7 +21,7 @@ export default function ButtonAppBar() {
   }
 
   useEffect(()=>{
-    console.log('sign out')
+    
   },[user])
   return (
     <Navbar className="header" expand="lg">

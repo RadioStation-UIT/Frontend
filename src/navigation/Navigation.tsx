@@ -15,7 +15,6 @@ import { useSelector } from 'react-redux';
 
 function Navigation() {
     const user = useSelector((state: RootState) => state.user);
-    console.log(Object.keys(user).length)
     return (
         <Switch>
             {/* user */}
