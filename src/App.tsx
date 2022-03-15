@@ -8,21 +8,26 @@ import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import Navigation from './navigation/Navigation';
 import axios from 'axios';
+import { useDispatch } from 'react-redux';
+import {userAction} from './redux/actions/user';
 
 function App() {
-  // const demoToken = async () => {
-  //   return axios.get("http://localhost:5000/api/user/track-by-userId",{
-  //     headers: {
-  //       Authorization: "Bearer " + localStorage.getItem("token")
-  //     }
-  //   })
-  //     .then((res) => { console.log(res) })
-  //     .catch((err) => { console.log(err) })
-  // }
+  const dispatch = useDispatch();
+  const getUserByToken = async () => {
+    return axios.get("http://localhost:5000/api/user/get-user-by-token",{
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem("accessToken")
+      }
+    })
+      .then((res) => { 
+        dispatch(userAction('login', res.data));
+      })
+      .catch((err) => { console.log(err) })
+  }
 
-  // useEffect(() => {
-  //   demoToken()
-  // }, [])
+  useEffect(() => {
+    getUserByToken()
+  }, [])
 
   return (
     <div className="App">

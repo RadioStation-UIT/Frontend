@@ -6,8 +6,13 @@ import LibraryMusicIcon from '@mui/icons-material/LibraryMusic';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import axios from 'axios';
+import { useDispatch } from 'react-redux';
+import {userAction} from '../../redux/actions/user';
+import { useHistory } from "react-router-dom";
 
 function SignInComponent() {
+    const dispatch = useDispatch();
+    let history = useHistory();
     
     const submit = async (e: any) => {
         e.preventDefault();
@@ -24,7 +29,13 @@ function SignInComponent() {
                     if (res.data.userCreated === true){
                         alert(res.data.message);
                     }else{
-                        alert(res.data.message);
+                        localStorage.setItem('accessToken', res.data.accessToken);
+                        dispatch(userAction('login', {
+                            user: res.data.user,
+                            avatar: res.data.avatar,
+                            blance: res.data.blance
+                        }));
+                        history.push("/");
                     }
                 })
                 .catch(err=>{console.log(err)})

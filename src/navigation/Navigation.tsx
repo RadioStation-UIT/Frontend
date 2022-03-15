@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route,Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import Artists from '../screens/Artists/Artists';
 import Events from '../screens/Events/Events';
 import Home from '../screens/Home/Home';
@@ -10,38 +10,43 @@ import Albums from '../screens/Albums/Albums';
 import SignIn from '../screens/SignIn/SignIn';
 import SignUp from '../screens/SignUp/SignUp';
 
-function Navigation(){
-    return(
+import { RootState } from '../redux/reducers';
+import { useSelector } from 'react-redux';
+
+function Navigation() {
+    const user = useSelector((state: RootState) => state.user);
+    console.log(Object.keys(user).length)
+    return (
         <Switch>
             {/* user */}
-            <Route path='/sign-in'>
-                <SignIn/>
+            <Route path="/sign-in">
+                {Object.keys(user).length > 0 ? <Redirect to="/" /> : <SignIn />}
             </Route>
             <Route path='/sign-up'>
-                <SignUp/>
+                {Object.keys(user).length > 0 ? <Redirect to="/" /> : <SignUp />}
             </Route>
-            
+
             {/* everyone */}
             <Route path='/albums'>
-                <Albums/>
+                <Albums />
             </Route>
             <Route path='/store'>
-                <Store/>
+                <Store />
             </Route>
             <Route path='/rank'>
-                <RankMusic/>
+                <RankMusic />
             </Route>
             <Route path='/news'>
-                <News/>
+                <News />
             </Route>
             <Route path='/events'>
-                <Events/>
+                <Events />
             </Route>
             <Route path='/artists'>
-                <Artists/>
+                <Artists />
             </Route>
             <Route path='/'>
-                <Home/>
+                <Home />
             </Route>
         </Switch>
     )

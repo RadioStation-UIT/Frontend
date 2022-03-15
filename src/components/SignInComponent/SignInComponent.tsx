@@ -5,13 +5,36 @@ import { Link } from 'react-router-dom'
 import LibraryMusicIcon from '@mui/icons-material/LibraryMusic';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
+import axios from 'axios';
+import { useDispatch } from 'react-redux';
+import {userAction} from '../../redux/actions/user';
+import { useHistory } from "react-router-dom";
 
 function SignInComponent() {
-    
-    const submit = (e: any) => {
+    const dispatch = useDispatch();
+    let history = useHistory();
+
+    const submit = async (e: any) => {
         e.preventDefault();
-        console.log(e.target.emailOrUserName.value);
-        console.log(e.target.password.value);
+        const user = {
+            emailOrUserName: e.target.emailOrUserName.value,
+            password: e.target.password.value
+        }
+        await axios.post('http://localhost:5000/api/user/login', user)
+            .then((res) => {
+                if (res.data.Login) {
+                    localStorage.setItem('accessToken', res.data.accessToken);
+                    dispatch(userAction('login', {
+                        user: res.data.user,
+                        avatar: res.data.avatar,
+                        blance: res.data.blance
+                    }));
+                    history.push("/");
+                }else{
+                    alert(res.data.message);
+                }
+            })
+            .catch(err => { console.log(err) })
     }
 
     return (
@@ -20,18 +43,18 @@ function SignInComponent() {
                 <div className="sign__form_title">
                     <Link to="/">
                         <span className="sign__icon">
-                            <LibraryMusicIcon/>
+                            <LibraryMusicIcon />
                         </span>
                         <span className="sign__title">Pirex Radio</span>
                     </Link>
                 </div>
-                <TextField id="emailOrUserName" label="Email or UserName" name="emailOrUserName" variant="outlined" className="sign__form_input"/>
-                <TextField id="password" label="Password" variant="outlined" name="password" className="sign__form_input" type="password"/>
+                <TextField id="emailOrUserName" label="Email or UserName" name="emailOrUserName" variant="outlined" className="sign__form_input" />
+                <TextField id="password" label="Password" variant="outlined" name="password" className="sign__form_input" type="password" />
                 <Button variant="contained" className="sign__form_button" type="submit">Sign In</Button>
                 <div className="sign__text">
                     <span>Don't have an account?</span>
                     <Link to="/sign-up" className="sign__link">
-                        Sign Up!    
+                        Sign Up!
                     </Link>
                 </div>
                 <div className="sign__text">
