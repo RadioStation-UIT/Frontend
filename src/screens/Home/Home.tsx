@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import HomeLayout from '../../layout/HomeLayout/HomeLayout';
-import axios from 'axios'
+import axios from 'axios';
+import {Endpoints} from '../../api/Endpoint';
 
 function Home() {
     let [index, setIndex] = useState(0);
@@ -81,33 +82,33 @@ function Home() {
     >([])
 
     const fetchAllTrack = async () => {
-        return axios.get("http://localhost:5000/api/track")
+        return axios.get(`${Endpoints}/api/track`)
             .then((res) => { setAllTrack(res.data); setIndex(index++) })
             .catch((err) => { console.log(err) })
 
     }
 
     const fetchAllNotification = async () => {
-        return axios.get("http://localhost:5000/api/notification")
+        return axios.get(`${Endpoints}/api/notification`)
             .then((res) => { setAllNotification(res.data); setIndex(index++) })
             .catch((err) => { console.log(err) })
 
     }
 
     const fecthAllAlbum = async () => {
-        return axios.get("http://localhost:5000/api/album")
+        return axios.get(`${Endpoints}/api/album`)
             .then((res) => { setAllAlbum(res.data); setIndex(index++) })
             .catch((err) => { console.log(err) })
     }
 
     const fecthAllArtist = async () => {
-        return axios.get("http://localhost:5000/api/artist")
+        return axios.get(`${Endpoints}/api/artist`)
             .then((res) => { setAllArtists(res.data); setIndex(index++) })
             .catch((err) => { console.log(err) })
     }
 
     const fecthNews = async () => {
-        return axios.get("http://localhost:5000/api/news")
+        return axios.get(`${Endpoints}/api/news`)
             .then((res) => { setAllNews(res.data); setIndex(index++) })
             .catch((err) => { console.log(err) })
     }

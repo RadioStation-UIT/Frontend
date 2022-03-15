@@ -9,6 +9,7 @@ import axios from 'axios';
 import { useDispatch } from 'react-redux';
 import {userAction} from '../../redux/actions/user';
 import { useHistory } from "react-router-dom";
+import {Endpoints} from '../../api/Endpoint';
 
 function SignInComponent() {
     const dispatch = useDispatch();
@@ -24,7 +25,7 @@ function SignInComponent() {
                 userName: e.target.userName.value,
                 password: e.target.password.value
             }
-            await axios.post('http://localhost:5000/api/user/register',user)
+            await axios.post(`${Endpoints}/api/user/register`,user)
                 .then((res)=>{
                     if (res.data.userCreated === true){
                         alert(res.data.message);

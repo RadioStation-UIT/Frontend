@@ -9,6 +9,7 @@ import axios from 'axios';
 import { useDispatch } from 'react-redux';
 import {userAction} from '../../redux/actions/user';
 import { useHistory } from "react-router-dom";
+import {Endpoints} from '../../api/Endpoint';
 
 function SignInComponent() {
     const dispatch = useDispatch();
@@ -20,7 +21,7 @@ function SignInComponent() {
             emailOrUserName: e.target.emailOrUserName.value,
             password: e.target.password.value
         }
-        await axios.post('http://localhost:5000/api/user/login', user)
+        await axios.post(`${Endpoints}/api/user/login`, user)
             .then((res) => {
                 if (res.data.Login) {
                     localStorage.setItem('accessToken', res.data.accessToken);
