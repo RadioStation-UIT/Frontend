@@ -10,7 +10,8 @@ import Navigation from './navigation/Navigation';
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
 import {userAction} from './redux/actions/user';
-import {Endpoints} from './api/Endpoint'
+import {Endpoints} from './api/Endpoints';
+import {io} from 'socket.io-client';
 
 function App() {
   const dispatch = useDispatch();

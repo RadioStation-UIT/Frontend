@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import HomeLayout from '../../layout/HomeLayout/HomeLayout';
 import axios from 'axios';
-import {Endpoints} from '../../api/Endpoint';
+import {Endpoints} from '../../api/Endpoints';
 
 function Home() {
     let [index, setIndex] = useState(0);

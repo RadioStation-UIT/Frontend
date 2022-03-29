@@ -9,7 +9,7 @@ import axios from 'axios';
 import { useDispatch } from 'react-redux';
 import {userAction} from '../../redux/actions/user';
 import { useHistory } from "react-router-dom";
-import {Endpoints} from '../../api/Endpoint';
+import {Endpoints} from '../../api/Endpoints';
 
 function SignInComponent() {
     const dispatch = useDispatch();
