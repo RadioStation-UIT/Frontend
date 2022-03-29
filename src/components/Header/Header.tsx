@@ -13,6 +13,7 @@ export default function ButtonAppBar() {
   const [textFind, setTextFind] = useState('');
   const dispatch = useDispatch();
   const user = useSelector((state: RootState) => state.user);
+  console.log(user);
 
 
   const signOut = ()=>{

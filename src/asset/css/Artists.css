@@ -109,6 +109,9 @@
 .a__margin_top_16{
     margin-top: 16px;
 }
+.nrc__liked svg{
+    color: #25a56a;
+}
 /*media*/
 @media (min-width: 768px) {
     .artists__filter {
